@@ -14,7 +14,7 @@ public class JavaWorkshop {
         sortedMap();
 	}
 
-	public static void sortedMap() {
+	private static void sortedMap() {
 	    SortedMap<String, Integer> map = new TreeMap<>();
         map.put("ghi", 111);
         map.put("abc", 444);
