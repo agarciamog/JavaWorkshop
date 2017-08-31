@@ -51,4 +51,37 @@
             (2)Comparator Interface See JavaWorkshop.collectionSort_comparator()
                             Implmented by type to perform sort
                             Specifies sort behavior for another type
+> Maps
+        Common Map Interfaces
+                  Map: Basic map operations
+                        Methods
+                            put, add key and value
+                            putIfAbsent, add key and vali if key not contained or value null
+                            get, return value for key, if key not fround return null
+                            getOrDefault, return value for key, if key not found return provided default value
+                            values, return a collection of the contained values
+                            keySet, return a Set of the contained keys
+                            forEach, perform action on each entry
+                            replaceAll, replace all values
+            SortedMap: Map whose keys are sorted
+                        Methods
+                            firstKey, return first key
+                            lastkey, return last key
+                            headMap, (<) return a map for all keys that are less than the specified key
+                            tailMap, (>=) return a map for all keys that are greater than or equal to the specified key
+                            subMap, return a map for all keys that are greater than or equal to the starting key and
+                                        less than the ending key
+        Map Classes
+                  HashMap: Efficient general purpose Map implementation
+                           + Makes absolutely no guarantees about the iteration order. It can (and will) even change
+                           completely when new elements are added.
+                  TreeMap: SortedMap implemented as a self-balancing tree
+                           Supports Comparable and Comparator sorting
+                           + Will iterate according to the "natural ordering" of the keys according to their compareTo()
+                           method (or an externally supplied Comparator). Additionally, it implements the SortedMap
+                           interface, which contains methods that depend on this sort order.
+            LinkedHashMap: iterate in the order in which entries were put into the map.
+                HashTable: Generic name for hash-based maps. Obsolete since Java 1.1.
+
+
 

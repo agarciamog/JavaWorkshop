@@ -11,8 +11,67 @@ import java.util.*;
 public class JavaWorkshop {
 
 	public static void main(String[] args) {
-        collectionSort_comparator();
+        sortedMap();
 	}
+
+	public static void sortedMap() {
+	    SortedMap<String, Integer> map = new TreeMap<>();
+        map.put("ghi", 111);
+        map.put("abc", 444);
+        map.put("def", 333);
+        map.put("xyz", 999);
+
+        // Output is sorted
+        System.out.println("Tree Map:");
+        map.forEach( (k, v) -> System.out.println(k + " | " + v));
+        System.out.println("\nTail Map:");
+        SortedMap<String, Integer> hMap = map.headMap("def");
+        hMap.forEach( (k, v) -> System.out.println(k + " | " + v));
+        System.out.println("\nHead Map:");
+        SortedMap<String, Integer> tMap = map.tailMap("def");
+        tMap.forEach( (k, v) -> System.out.println(k + " | " + v));
+    }
+
+	private static void mapsLamdaExpressions() {
+        Map<String, Integer> map = new HashMap<>();
+        map.put("ghi", 111);
+        map.put("abc", 444);
+        map.put("def", 333);
+
+        map.forEach( (k, v) -> System.out.println(k + " | " + v));
+        System.out.println();
+        map.replaceAll( (k, v) -> v = 0);
+        map.forEach( (k, v) -> System.out.println(k + " | " + v));
+    }
+
+	private static void mapsPutGet() {
+        /*
+           This is called "programming to an interface" - a rather common and very useful practice.
+
+           Map<String,Integer> is an interface. It cannot be instantiated. Variables of interface
+           types need to be assigned objects of classes that implement these interfaces.
+
+           HashMap<String,Integer> is a class that implements Map<String,Integer>, so the assignment
+           is valid. If you decide to change the type later, and use TreeMap<String,Integer> instead
+           of HashMap<String,Integer>, all you need to do is change the type in the new expression.
+           The rest of your code would remain the same.
+         */
+	    Map<String, Integer> map = new HashMap<>();
+	    map.put("ghi", 111);
+	    map.put("abc", 444);
+	    map.put("def", 333);
+
+	    Integer s1 = map.get("ghi");
+        System.out.println(s1);
+
+        // Note, return can be null, and since assigning null to an int will cause a NullPointerException,
+        // you should assign to type Integer.
+        Integer s2 = map.get("xyz");
+        System.out.println(s2);
+
+        Integer s3 = map.getOrDefault("xyz", 999);
+        System.out.println(s3);
+    }
 
 	private  static void collectionSort_comparable() {
 	    TreeSet<MyComparableClass> tree = new TreeSet<>();
@@ -21,7 +80,7 @@ public class JavaWorkshop {
         tree.add(new MyComparableClass("1111", "def"));
 
         // tree used the compareTo method in MyComparableClass
-        // to sort the collection tree.
+        // to sort the collection tree automatically.
         tree.forEach(v -> System.out.println(v));
     }
 
