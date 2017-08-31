@@ -1,0 +1,54 @@
+[======= Strings =======]
+> On String, StringBuilder, StringBuffer
+         If your string is not going to change use a String class because a String object is immutable.
+         If your string can change (example: lots of logic and operations in the construction of the string)
+            and will only be accessed from a single thread, using a StringBuilder is good enough.
+         If your string can change, and will be accessed from multiple threads, use a StringBuffer because
+            StringBuffer is synchronous so you have thread-safety.
+
+> Formatting Strings
+        Several options: String.format, System.out.printf, Formatter.format
+        All format specifiers start with %. For example %d displays a decimal value, but you can also use
+            many others like %.2f. This formats a float to 2.
+            significant figures.
+            Parts of Format Specifiers
+                %[arguement index][flags][width][precision]conversion
+                conversion types: d (integers), f (floats), s (strings)
+                           flags: 0 (adds 0s, ex %04d - meaning the width is 4 and any empty space if filled
+                                        in with up to 4 0s.)
+                                  - (left justifies text, default is right)
+                                  , (separator, for example int x = 1000000, %,d is 1,000,000)
+                                    (space, adds an empty space at the begining, good for signed values, % d
+                                                                                                          234
+                                                                                                         -234)
+                           width: Integer (the width of the data to display W:%3d, ex  W: 52
+                                                                                       W:123)
+                 arguement index: Most common is no arguement index. You can specify which format specifier goes
+                                        with an input. Ex ("%$3d %$2d %$1d", 100, 200, 300) => "300 200 100"
+        Use the Formatter class to format streams of data. See JavaWorkshop.stringFormatterWriter()
+
+[======= Collections =======]
+> Common Collection Interfaces
+        Collection: Basic collection operations
+              List: Collection that maintains a particular order
+             Queue: Collection with the concept of order and specific head element
+               Set: Collection that contains no duplicate values
+         SortedSet: A Set whoe members are sorted
+> Common Collection Classes
+         ArrayList: A List backed by a resizable array
+                    Efficient random access bu inefficient random inserts
+        LinkedList: A List and Queue backed by a doubly-linked list
+                    Efficient random insert but inefficient random access
+           HashSet: A Set imiplemented as a hash table
+                    Efficient general purpose usage of any size
+           TreeSet: A SortedSet implemented as a balanced binary tree
+                    Members accessible in order but less efficient to modify and search than Hashset
+> Sorting
+        Two ways to specify behavior
+            (1)Comparable Interface: See JavaWorkshop.collectionSort_comparable()
+                            Implmented by the type to be sorted
+                            Type specifies own sort behavior (should be consistent with equals)
+            (2)Comparator Interface See JavaWorkshop.collectionSort_comparator()
+                            Implmented by type to perform sort
+                            Specifies sort behavior for another type
+

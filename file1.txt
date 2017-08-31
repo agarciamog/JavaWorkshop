@@ -1,0 +1,2 @@
+My intergers are 1, 2 and 4.
+The average is 2.33
