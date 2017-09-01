@@ -2,6 +2,7 @@ package io.albertogarcia.javaWorkshop;
 
 import sun.awt.image.ImageWatched;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -11,9 +12,31 @@ import java.util.*;
 public class JavaWorkshop {
 
 	public static void main(String[] args) {
-        sortedMap();
+        readProperties();
 	}
 
+	private static void readProperties() {
+	    Properties properties = new Properties();
+	    try (BufferedReader reader = Files.newBufferedReader(Paths.get("app.properties"))) {
+            properties.load(reader);
+            properties.forEach( (k, v) -> System.out.println(k + " | " + v));
+        } catch (IOException e) {
+            System.out.println(e.getClass().getSimpleName() + " - " + e.getMessage());
+        }
+    }
+
+	private static void writeProperties() {
+	    Properties properties = new Properties();
+	    properties.setProperty("fname", "Alberto");
+	    properties.setProperty("lname", "Garcia");
+	    properties.setProperty("accNum", "123456");
+
+	    try (BufferedWriter writer = Files.newBufferedWriter(Paths.get("app.properties"))) {
+	        properties.store(writer, "Application Properties");
+        } catch (IOException e) {
+            System.out.println(e.getClass().getSimpleName() + " - " + e.getMessage());
+        }
+    }
 	private static void sortedMap() {
 	    SortedMap<String, Integer> map = new TreeMap<>();
         map.put("ghi", 111);
