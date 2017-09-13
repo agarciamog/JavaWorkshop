@@ -29,15 +29,18 @@
 
 [======= Collections =======]
 > Common Collection Interfaces
-        Collection: Basic collection operations
-              List: Collection that maintains a particular order
-             Queue: Collection with the concept of order and specific head element
+        Collection: Basic collection operations. Collection also extends Iterable. This means it has an iterator, or
+                    cursor, that allows us to progress/move through the collection. If you are looping through data
+                    then use for, if you are modifying data while you are iterating through it use an iterator.
+              List: Collection that maintains a particular iteration order
+       Queue/Deque: Collection with the concept of order and specific head element. Deque can be used like a stack.
                Set: Collection that contains no duplicate values
          SortedSet: A Set whoe members are sorted
 > Common Collection Classes
          ArrayList: A List backed by a resizable array
-                    Efficient random access bu inefficient random inserts
+                    Efficient random access but inefficient random inserts
         LinkedList: A List and Queue backed by a doubly-linked list
+                    An ordered set of data elements, each containing a link to its successor
                     Efficient random insert but inefficient random access
            HashSet: A Set imiplemented as a hash table
                     Efficient general purpose usage of any size
@@ -82,6 +85,41 @@
                            interface, which contains methods that depend on this sort order.
             LinkedHashMap: iterate in the order in which entries were put into the map.
                 HashTable: Generic name for hash-based maps. Obsolete since Java 1.1.
+> Types
+                 Lists: Iteration order
+                  Sets: Uniqueness
+         Queues/Deques: Modification order
+                  Maps: Collection of pairs
+
+[======= Multithreading =======]
+> Thread Pools: Create queues for us to put task into, a lot easier than dealing with threads directly where it is easy
+        to misuse. Assigns tasks to a pool of threads. Handles details of managing threads.
+> Synchronized: The synchronized keyword prevents concurrent access to a block of code or object by multiple Threads.
+        By default, a Hashtable is synchronized, so only one thread can access the table at a time.
+
+[======= Annotations =======]
+> Give classes and methods context and intent in the form of meta data.
+          @Override: when compiler sees this annotation it checks to see if the method directly below it is overriding
+                    a method, otherwise it will display a compliler message.
+        @Deprecated: if an implmentation is using a method that is marked as @Deprecated, the compiler will display
+                    a message indicating so. This is useful if a new definition is written and we want to let users
+                    know that the old method is deprecated.
+
+[======= Serialization =======]
+> Provides method for object persistence.
+> Two-parts: Serialize and Deserialize, esstially converting an object to a stream of bytes and vis-a-versa.
+        Implement Interface Serializable, but remember it has no methods, meaning it's a marker interface. Also,
+            remember that primitives are serializable, but other types are not unless they implement the marker
+            interface Serializable. The Class String is an example of a reference type that implements serializable.
+> Use ObjectOutputStream and ObjectInputStream
+> Keyword transient - If you define any data member as transient, it will not be serialized.
+
+[======= Generics =======]
+> Type <?> is shorthand for <? extends Object>, which in turn is a wildcard saying that we do not know they type, but
+        we know that it extends object. Why not use <Object>? Using object you lose type safety, while using ? allows
+        you to "lock in" on the type even thought we don't know it at runtime.
 
 
-
+[======= Misc. =======]
+> Try-with-resources: The try-with-resources statement is a try statement that declares one or more resources. A
+        resource is an object that must be closed after the program is finished with it. Great for streams.

@@ -2,9 +2,8 @@ package io.albertogarcia.javaWorkshop;
 
 import sun.awt.image.ImageWatched;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
+import java.io.*;
+import java.lang.reflect.Method;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
@@ -12,8 +11,71 @@ import java.util.*;
 public class JavaWorkshop {
 
 	public static void main(String[] args) {
-        readProperties();
+        lists();
 	}
+
+	private static void lists() {
+	    List<String> list = new LinkedList<>();
+	    list.add("A");
+	    list.add("B");
+	    list.add("C");
+
+        System.out.println(list.get(1));
+    }
+
+	private static void collections() {
+	    StringBuffer[] s = { new StringBuffer("A"), new StringBuffer("B"), new StringBuffer("C")};
+	    List<StringBuffer> list = Arrays.asList(s);
+	    List<StringBuffer> linkedlist = new LinkedList<>(Arrays.asList(s));
+
+	    Iterator<StringBuffer> iterator = linkedlist.iterator();
+
+	    StringBuffer sb;
+	    while(iterator.hasNext()) {
+            sb = iterator.next();
+            iterator.remove();
+            System.out.println(sb);
+        }
+    }
+
+	private static void serialization() {
+	    BankAccount acc = new BankAccount("1234", 500);
+	    acc.deposit(250);
+	    saveAccount(acc, "object.dat");
+	    BankAccount bankAccount  = loadAccount("object.dat");
+        System.out.println(bankAccount.toString());
+    }
+
+    private static void saveAccount(BankAccount ba, String file) {
+        try(ObjectOutputStream outputStream = new ObjectOutputStream(Files.newOutputStream(Paths.get(file)))) {
+            outputStream.writeObject(ba);
+            System.out.println("Object serialized...");
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private static BankAccount loadAccount(String file) {
+	    BankAccount ba = null;
+
+	    try(ObjectInputStream inputStream = new ObjectInputStream(Files.newInputStream(Paths.get(file)))) {
+            ba = (BankAccount) inputStream.readObject();
+        } catch (IOException e) {
+	        System.out.println(e.getMessage());
+        } catch (ClassNotFoundException e) {
+	        System.out.println(e.getMessage());
+        }
+        return ba;
+    }
+
+	private static void classWork(){
+	    IOStreams s = new IOStreams();
+	    Class<?> myClass = s.getClass();
+	    Method[] methods = myClass.getDeclaredMethods();
+	    for(Method m:methods) {
+            System.out.println(m.toString());
+        }
+    }
 
 	private static void readProperties() {
 	    Properties properties = new Properties();
@@ -32,6 +94,7 @@ public class JavaWorkshop {
 	    properties.setProperty("accNum", "123456");
 
 	    try (BufferedWriter writer = Files.newBufferedWriter(Paths.get("app.properties"))) {
+            // Can also write to an xml, but need to use outputstream > properties.storeToXML(out);
 	        properties.store(writer, "Application Properties");
         } catch (IOException e) {
             System.out.println(e.getClass().getSimpleName() + " - " + e.getMessage());
