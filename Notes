@@ -53,7 +53,7 @@
                             Type specifies own sort behavior (should be consistent with equals)
             (2)Comparator Interface See JavaWorkshop.collectionSort_comparator()
                             Implmented by type to perform sort
-                            Specifies sort behavior for another type
+                            Specifies sort behavior for another type, returns -1 (o1 < o2), 0 (equal), 1 (o1 > o2)
 > Maps
         Common Map Interfaces
                   Map: Basic map operations
@@ -123,3 +123,7 @@
 [======= Misc. =======]
 > Try-with-resources: The try-with-resources statement is a try statement that declares one or more resources. A
         resource is an object that must be closed after the program is finished with it. Great for streams.
+
+
+https://www.javatpoint.com/corejava-interview-questions
+http://www.geeksforgeeks.org/amazon-interview-set-27/

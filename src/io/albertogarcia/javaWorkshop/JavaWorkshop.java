@@ -11,8 +11,22 @@ import java.util.*;
 public class JavaWorkshop {
 
 	public static void main(String[] args) {
-        lists();
+        shipmentExample();
 	}
+
+	private static void shipmentExample() {
+	    Shipment shipment = new Shipment();
+	    Product p1 = new Product("Window", 25);
+	    shipment.add(p1);
+	    Product p2 = new Product("Door", 15);
+        shipment.add(p2);
+
+        shipment.replace(p1, new Product("Stove", 200));
+
+        for(Product p : shipment) {
+            System.out.println(p.toString());
+        }
+    }
 
 	private static void lists() {
 	    List<String> list = new LinkedList<>();
