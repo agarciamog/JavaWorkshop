@@ -11,8 +11,29 @@ import java.util.*;
 public class JavaWorkshop {
 
 	public static void main(String[] args) {
-        shipmentExample();
+        queues();
 	}
+
+    private static void queues() {
+	    Queue<Integer> queue = new PriorityQueue<Integer>();
+	    queue.offer(1);
+	    queue.offer(2);
+	    queue.offer(4);
+
+	    Integer i = queue.peek();
+        System.out.println(i);
+        System.out.println("======");
+        for(Integer x : queue) {
+            System.out.println(x);
+        }
+    }
+
+	private static void getAscii(){
+	    char c = 'J';
+        int value = (int) c;
+	    System.out.println(value);
+
+    }
 
 	private static void shipmentExample() {
 	    Shipment shipment = new Shipment();
@@ -179,9 +200,28 @@ public class JavaWorkshop {
         tree.add(new MyComparableClass("3333", "abc"));
         tree.add(new MyComparableClass("1111", "def"));
 
+
         // tree used the compareTo method in MyComparableClass
         // to sort the collection tree automatically.
         tree.forEach(v -> System.out.println(v));
+    }
+
+    private static void hashSet() {
+        Set<Product> products = new HashSet<Product>();
+	    Product p1 = new Product("Window", 15);
+        Product p2 = new Product("Floor Panel", 5);
+        Product p3 = new Product("Door", 10);
+        Product p4 = new Product("Window", 15);
+
+        products.add(p1);
+        products.add(p2);
+        products.add(p3);
+        products.add(p4);
+        products.add(p3);
+
+        for(Product p : products) {
+            System.out.println(p);
+        }
     }
 
     private  static void collectionSort_comparator() {

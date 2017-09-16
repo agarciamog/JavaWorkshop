@@ -54,6 +54,9 @@
             (2)Comparator Interface See JavaWorkshop.collectionSort_comparator()
                             Implmented by type to perform sort
                             Specifies sort behavior for another type, returns -1 (o1 < o2), 0 (equal), 1 (o1 > o2)
+> Sets
+        HashSet : Unique unordered set, implments HashMap
+                    + http://www.geeksforgeeks.org/internal-working-of-sethashset-in-java/
 > Maps
         Common Map Interfaces
                   Map: Basic map operations
@@ -85,6 +88,10 @@
                            interface, which contains methods that depend on this sort order.
             LinkedHashMap: iterate in the order in which entries were put into the map.
                 HashTable: Generic name for hash-based maps. Obsolete since Java 1.1.
+> Queues
+        In Java use offer(E) which is equivalent to add, except it returns null if the queue is too full to add an
+            element where as add throws an exception. The same is true for remove, use poll() which returns null if
+            not elements are left to remove. Use peek() to read without removing.
 > Types
                  Lists: Iteration order
                   Sets: Uniqueness
@@ -123,7 +130,13 @@
 [======= Misc. =======]
 > Try-with-resources: The try-with-resources statement is a try statement that declares one or more resources. A
         resource is an object that must be closed after the program is finished with it. Great for streams.
-
+> ==, .equals(), compareTo(), and compare()
+            a == b : For primatives compares values. On objects it compares references, not values.
+       a.equals(b) : Behaves the same way as ==, unless it is overridden, therefore it compares references.
+    a.compareTo(b) : Comparable Interface, meaning you must implement a values comparison and returns an int (-1
+                        for less than, 0 for equal, 1 for greater than). Used for ordering.
+     compare(a, b) : Comparator Interface, meaning you must implement comparison of values in 2 objects that is passed
+                        to a utility class like a sorting data structures such as TreeSet or TreeMap.
 
 https://www.javatpoint.com/corejava-interview-questions
 http://www.geeksforgeeks.org/amazon-interview-set-27/
