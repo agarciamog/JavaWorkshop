@@ -1,4 +1,4 @@
-package io.albertogarcia.javaWorkshop;
+package io.albertogarcia.javaworkshop;
 
 import java.io.*;
 import java.nio.file.*; // New/Better implementation of File/FileReader, see newBuffReader

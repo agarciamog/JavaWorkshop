@@ -1,4 +1,4 @@
-package io.albertogarcia.javaWorkshop;
+package io.albertogarcia.javaworkshop;
 
 class HashEntry {
     private int key;

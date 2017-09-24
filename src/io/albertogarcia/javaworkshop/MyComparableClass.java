@@ -1,4 +1,4 @@
-package io.albertogarcia.javaWorkshop;
+package io.albertogarcia.javaworkshop;
 
 public class MyComparableClass implements Comparable<MyComparableClass> {
     String label, value;

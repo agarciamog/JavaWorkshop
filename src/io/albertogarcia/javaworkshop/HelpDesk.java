@@ -1,8 +1,6 @@
-package io.albertogarcia.javaWorkshop;
+package io.albertogarcia.javaworkshop;
 
 import java.util.LinkedList;
-import java.util.PriorityQueue;
-import java.util.Queue;
 
 public class HelpDesk {
     private final LinkedList<Enquiry> enquiries = new LinkedList<>();

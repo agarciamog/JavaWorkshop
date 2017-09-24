@@ -1,4 +1,4 @@
-package io.albertogarcia.javaWorkshop;
+package io.albertogarcia.javaworkshop;
 
 import  java.util.Iterator;
 

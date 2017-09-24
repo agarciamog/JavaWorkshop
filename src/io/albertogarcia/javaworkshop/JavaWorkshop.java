@@ -1,6 +1,4 @@
-package io.albertogarcia.javaWorkshop;
-
-import sun.awt.image.ImageWatched;
+package io.albertogarcia.javaworkshop;
 
 import java.io.*;
 import java.lang.reflect.Method;
@@ -11,8 +9,19 @@ import java.util.*;
 public class JavaWorkshop {
 
 	public static void main(String[] args) {
-        queues();
+        arrayList();
 	}
+
+	private static void arrayList() {
+	    ArrayList<Integer> arr = new ArrayList<Integer>();
+	    int numBuckets = 10;
+
+	    for(int i = 0; i < numBuckets; i++) {
+	        arr.add(null);
+        }
+
+        System.out.println("Done");
+    }
 
     private static void queues() {
 	    Queue<Integer> queue = new PriorityQueue<Integer>();

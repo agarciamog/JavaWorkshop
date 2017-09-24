@@ -1,6 +1,4 @@
-package io.albertogarcia.javaWorkshop;
-
-import io.albertogarcia.javaWorkshop.MyComparableClass;
+package io.albertogarcia.javaworkshop;
 
 import java.util.Comparator;
 

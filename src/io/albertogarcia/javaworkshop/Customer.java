@@ -1,4 +1,4 @@
-package io.albertogarcia.javaWorkshop;
+package io.albertogarcia.javaworkshop;
 
 public class Customer {
     public static final Customer JACK = new Customer("Jack");

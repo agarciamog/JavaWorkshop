@@ -1,4 +1,4 @@
-package io.albertogarcia.javaWorkshop;
+package io.albertogarcia.javaworkshop;
 
 public class ProductFixtures {
     public static Product door = new Product("Wooden Door", 35);
